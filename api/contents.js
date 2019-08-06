@@ -4,7 +4,7 @@ const Content = require('../models/Content');
 // const keys = require('../../config/keys')
 
 
-router.post('/add', (req, res) => {
+router.post('/addItem', (req, res) => {
     const itemName = req.body.itemName;
     const itemCost = req.body.itemCost
     const category = req.body.category
@@ -24,7 +24,7 @@ router.post('/add', (req, res) => {
 
 })
 
-router.get('/get', (req, res) => {
+router.get('/getItems', (req, res) => {
     Content.find().then((contents) => {
         return res.status(200).json(contents)
     }).catch((err) => {

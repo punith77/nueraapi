@@ -5,6 +5,8 @@ const cors = require('cors');
 
 
 
+
+
 const server = express();
 server.use(bodyParser.urlencoded({ extended: false }));
 server.use(bodyParser.json());
@@ -16,6 +18,10 @@ const db = require('./config/keys').mongoURI;
 mongoose.connect(db).then(() => {
     console.log('MongoDB connected')
 }).catch((err) => console.log(err))
+
+// api routes
+server.use('/api/contents', require('./api/contents'));
+
 
 
 const port = process.env.PORT || 7000
